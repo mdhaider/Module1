@@ -13,6 +13,9 @@ public class LoginActivity extends AppCompatActivity  {
     private RadioGroup businessType;
     String customerType;
    private  Button accepBtn;
+    TrackGPS gps;
+    Double latitude;
+    Double longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class LoginActivity extends AppCompatActivity  {
         accepBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showLatLng();
                 goToMain();
             }
         });
@@ -42,8 +46,38 @@ public class LoginActivity extends AppCompatActivity  {
 
         Intent intent=new Intent(this,MainActivity.class);
         intent.putExtra("cust",customerType);
+        intent.putExtra("lats",34.89);
+        intent.putExtra("lngs",23.90);
         startActivity(intent);
+    }
+    public void showLatLng(){
+
+                // create class object
+                gps = new TrackGPS(LoginActivity.this);
+
+
+                // check if GPS enabled
+                if(gps.canGetLocation()){
+
+                    latitude = gps.getLatitude();
+                    longitude = gps.getLongitude();
+
+
+
+
+
+                }else{
+                    // can't get location
+                    // GPS or Network is not enabled
+                    // Ask user to enable GPS/network in settings
+                    gps.showSettingsAlert();
+                }
+
+            }
+
     }
 
 
-}
+
+
+

@@ -7,7 +7,6 @@ package com.oneapplab.module1;
 public class User {
 
 
-    public String uniqueID;
     public String buyItem;
     public String token;
 

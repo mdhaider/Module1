@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_vertical"
     tools:context="com.oneapplab.module1.MainActivity">
 
 
@@ -44,11 +43,18 @@
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="Submit" />
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-<TextView
-    android:id="@+id/tv"
-    android:visibility="gone"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context=".MainActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
 
 </LinearLayout>
